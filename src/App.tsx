@@ -19,7 +19,7 @@ function App() {
 
     {/*<Show> is used for displaying the layout for the specified screen size (above = "")*/}
     <Show above="lg">
-      <GridItem area="aside" bg='yellow'>Aside</GridItem>
+      <GridItem area="aside" bg='gold'>Aside</GridItem>
     </Show>
     <GridItem area="main" bg='blue'>Main</GridItem>
   </Grid>
