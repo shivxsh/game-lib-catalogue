@@ -1,4 +1,5 @@
 import { Grid, GridItem, Show } from "@chakra-ui/react"
+import NavBar from "./components/NavBar"
 
 
 function App() {
@@ -11,7 +12,10 @@ function App() {
     //sm, xl, md, ....
     }}>
 
-    <GridItem area="nav" bg='red'>Nav</GridItem>
+    {/* Specifying 'area' will let us know, which Grid template it corresponds to */}
+    <GridItem area="nav">  
+      <NavBar />
+    </GridItem>
 
     {/*<Show> is used for displaying the layout for the specified screen size (above = "")*/}
     <Show above="lg">
