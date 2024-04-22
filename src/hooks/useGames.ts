@@ -7,11 +7,19 @@ import { CanceledError } from "axios";
 
 
 //interfaces to genericly define the type of the response you get from an api
+
+export interface Platform{
+  id: number;
+  slug: string;
+  name: string;
+}
+
 export interface Game{
     //Visit rawg api doc to know about the type of the response body.
     id: number,
     name: string;
     background_image: string;
+    parent_platforms: {platform: Platform} [];  //It is an array of Platform objects. Refer the api documentation
 }
 
 interface FetchGamesResponse{
