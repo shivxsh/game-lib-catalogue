@@ -7,7 +7,7 @@ import GameCardContainer from "./GameCardContainer";
 
 const GameGrid = () => {
 
-  const {games, error, isLoading} = useGames();
+  const {data, error, isLoading} = useGames();
   const skeletons = [1,2,3,4,5,6];  //Number of cards you want to render on the screen for loading effect
 
   return (
@@ -22,7 +22,7 @@ const GameGrid = () => {
                 </GameCardContainer>
             )}
 
-            {games.map( (game) => 
+            {data.map( (game) => 
               <GameCardContainer>
                 <GameCard key={game.id} game={game}/>
               </GameCardContainer>
