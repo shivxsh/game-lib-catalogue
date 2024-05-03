@@ -1,9 +1,7 @@
 //custom hook with a cancellation controller:
 // https://medium.com/codex/resilient-fetch-requests-in-javascript-with-abortcontroller-a-guide-with-react-examples-573dba8a3758
 
-import { useEffect, useState } from "react";
-import apiClient from "../services/api-client";
-import { CanceledError } from "axios";
+
 import useData from "./useData";
 
 

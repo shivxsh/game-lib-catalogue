@@ -3,7 +3,8 @@ import apiClient from "../services/api-client";
 import { CanceledError } from "axios";
 
 
-// Generic type <T>
+// Generic type <T>: This hook  is a general hook to support both: useGenres and useGames hooks.
+
 interface FetchResponse<T>{
     count: number;
     results: T[];

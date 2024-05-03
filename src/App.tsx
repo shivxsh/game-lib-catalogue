@@ -12,6 +12,10 @@ function App() {
 
     //There are other shorthands for screen sizes as well:
     //sm, xl, md, ....
+    }}
+    templateColumns={{
+      base: '1fr',  //1 fraction: takes up all the space
+      lg: '200px 1fr'
     }}>
 
     {/* Specifying 'area' will let us know, which Grid template it corresponds to */}
@@ -21,7 +25,7 @@ function App() {
 
     {/*<Show> is used for displaying the layout for the specified screen size (above = "")*/}
     <Show above="lg">
-      <GridItem area="aside">
+      <GridItem area="aside" paddingX={5}> 
         <GenreList />
       </GridItem>
     </Show>
