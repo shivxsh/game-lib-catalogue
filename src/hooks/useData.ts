@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import apiClient from "../services/api-client";
-import { CanceledError } from "axios";
+import { AxiosRequestConfig, CanceledError } from "axios";
 
 
 // Generic type <T>: This hook  is a general hook to support both: useGenres and useGames hooks.
@@ -11,7 +11,7 @@ interface FetchResponse<T>{
 }
 
 // <T> is a generic type parameter
-const useData = <T>(endpoint : string) => {
+const useData = <T>(endpoint : string, requestConfig?: AxiosRequestConfig, deps?: any[]) => {
     const [data, setData] = useState<T[]>([]);
     const [error, setError] = useState('');
     const [isLoading, setIsLoading] = useState(true);
@@ -19,7 +19,7 @@ const useData = <T>(endpoint : string) => {
   //   UseEffect for sending the fetch results to backend
     useEffect( () => {
       const controller = new AbortController();  
-      apiClient.get<FetchResponse<T>>(endpoint, {signal: controller.signal})
+      apiClient.get<FetchResponse<T>>(endpoint, {signal: controller.signal, ...requestConfig})
           .then(res => {  
             setData(res.data.results);
             setIsLoading(false);
@@ -33,7 +33,7 @@ const useData = <T>(endpoint : string) => {
 
       //abort the existing api request
     return () => controller.abort();
-    }, [])
+    }, deps ? [...deps] : []);
 
     return {data, error, isLoading}
 }
