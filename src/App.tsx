@@ -12,6 +12,7 @@ export interface GameQuery {
   genre: Genre | null;
   platform: Platform | null;
   sortOrder: string;
+  searchText: string;
 }
 
 function App() {
@@ -32,7 +33,7 @@ function App() {
 
     {/* Specifying 'area' will let us know, which Grid template it corresponds to */}
     <GridItem area="nav">
-      <NavBar />
+      <NavBar onSearch={(searchText) => setGameQuery({ ...gameQuery, searchText })} />
     </GridItem>
 
     {/*<Show> is used for displaying the layout for the specified screen size (above = "")*/}
